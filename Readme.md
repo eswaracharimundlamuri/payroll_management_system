@@ -146,7 +146,7 @@ Clone the repository:
 
 ```bash
 
-git clone https://github.com/eswaracharimundlamuri/Payroll_management_System
+git clone https://github.com/eswaracharimundlamuri/payroll_management_system
 
 ```
 
