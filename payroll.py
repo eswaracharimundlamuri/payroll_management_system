@@ -25,8 +25,8 @@ class PayrollManagementSystem:
     def connect_oracle(self):
         try:
             self.connection = oracledb.connect(
-                user="**",
-                password="**",
+                user="****",
+                password="*****",
                 dsn=oracledb.makedsn(
                     "ec2-3-111-0-185.ap-south-1.compute.amazonaws.com",
                     1521,
@@ -43,8 +43,8 @@ class PayrollManagementSystem:
         try:
             s3 = boto3.client(
                 's3',
-                aws_access_key_id='****',
-                aws_secret_access_key='*****',
+                aws_access_key_id='******',
+                aws_secret_access_key='*******',
                 region_name='ap-south-1'
             )
 
@@ -85,11 +85,20 @@ class PayrollManagementSystem:
         try:
             # Check if employee already exists
             self.cursor.execute(
-                "SELECT 1 FROM Employee_Master WHERE emp_name = :name",
+                "SELECT Emp_name,Net_Salary FROM Employee_Master WHERE emp_name = :name",
                 {"name": emp_name}
             )
+            '''self.result=self.cursor.fetchone()
+            if self.result:
+                self.name,self.salary=self.result
+                print(f"Employee Name: {self.name}")
+                print(f"Net Salary: {self.salary}")'''
             if self.cursor.fetchone():
                 print("Employee already exists")
+                self.cursor.execute(
+                    "SELECT 1 FROM Employee_Master WHERE emp_name = :name",
+                    {"name": emp_name}
+
                 return
 
             # Find employee in S3 data

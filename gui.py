@@ -11,6 +11,7 @@ class PayrollGUI:
         self.root = root
         self.root.title("Payroll Management System")
         self.root.geometry("1000x450")
+        self.root.configure(bg = "#2c3e50")
 
         # Initialize backend system (first load)
 
