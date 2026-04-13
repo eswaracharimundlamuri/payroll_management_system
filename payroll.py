@@ -25,8 +25,8 @@ class PayrollManagementSystem:
     def connect_oracle(self):
         try:
             self.connection = oracledb.connect(
-                user="***********",
-                password="**********",
+                user="**",
+                password="**",
                 dsn=oracledb.makedsn(
                     "ec2-3-111-0-185.ap-south-1.compute.amazonaws.com",
                     1521,
@@ -43,8 +43,8 @@ class PayrollManagementSystem:
         try:
             s3 = boto3.client(
                 's3',
-                aws_access_key_id='********',
-                aws_secret_access_key='************',
+                aws_access_key_id='****',
+                aws_secret_access_key='*****',
                 region_name='ap-south-1'
             )
 
@@ -132,7 +132,7 @@ class PayrollManagementSystem:
 
         self.gross = self.basic_salary + self.hra + self.da + self.special
 
-       ''' print("\n------ Salary Breakdown ------")
+        '''print("\n------ Salary Breakdown ------")
         print(f"Basic: {self.basic_salary}")
         print(f"HRA: {round(self.hra, 2)}")
         print(f"DA: {round(self.da, 2)}")
@@ -146,7 +146,7 @@ class PayrollManagementSystem:
 
         self.total_deductions = self.pf + self.tax + self.cess
 
-       ''' print("\n------ Deductions ------")
+        '''print("\n------ Deductions ------")
         print(f"PF: {round(self.pf, 2)}")
         print(f"Tax: {round(self.tax, 2)}")
         print(f"Cess: {round(self.cess, 2)}")
